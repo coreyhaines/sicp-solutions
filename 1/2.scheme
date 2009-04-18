@@ -1,0 +1,17 @@
+(define (square x)
+	(* x x)
+	)
+(define (sum-squares x y)
+				(+ (square x) (square y))
+)
+
+(define (first-two-greater x y z)
+	(and (> x z) (> y z))
+)
+
+(define (sum-squares-greater-two x y z)
+		(cond ((first-two-greater x z y) (sum-squares x z))
+				((first-two-greater x y z) (sum-squares x y))
+				(else (sum-squares y z))
+		)
+)

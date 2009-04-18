@@ -1,0 +1,21 @@
+(define (square x) (* x x))
+(define (cube x) (* (square x) x))
+
+(define (good-enough? guess x)
+	(< (abs (- (cube guess) 
+					x)) 
+		 .001))
+
+(define (improve guess x)
+	(/ (+ (* 2 guess) 
+				(/ x (square guess))) 
+			3)
+)
+
+(define (cube-root-iterator guess x)
+	(if (good-enough? guess x)
+			guess
+			(cube-root-iterator (improve guess x)
+									x)))
+									
+(define (cube-root x) (cube-root-iterator 1 x))
