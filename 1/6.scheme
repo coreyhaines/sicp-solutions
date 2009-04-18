@@ -9,8 +9,7 @@
 (define (improve guess x)
 	(/ (+ (* 2 guess) 
 				(/ x (square guess))) 
-			3)
-)
+			3))
 
 (define (cube-root-iterator guess x)
 	(if (good-enough? guess x)
